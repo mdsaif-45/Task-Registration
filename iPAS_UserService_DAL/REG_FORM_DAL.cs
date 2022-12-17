@@ -8,7 +8,7 @@ namespace iPAS_UserService_DAL
 {
     public class REG_FORM_DAL
     {
-        #region SetFormData //working👍
+        #region SetFormData //Done👍
         public static IDataReader SetFormData(Database db, string Name, string Email, string Dob, string Country, string Gender, string Meal)
         {
             StringBuilder sqlQuery = new StringBuilder();
@@ -28,7 +28,7 @@ namespace iPAS_UserService_DAL
         }
         #endregion
 
-        #region UpdateFormData //sql query needed🛠️
+        #region UpdateFormData //sql query needed 🛠️
         public static IDataReader UpdateFormData(Database db, string Name, string Email, string Dob, string Country, string Gender, string Meal)
         {
             StringBuilder sqlQuery = new StringBuilder();
@@ -41,7 +41,7 @@ namespace iPAS_UserService_DAL
         }
         #endregion
 
-        #region GetFormData //working👍
+        #region GetFormData //Done👍
         public static IDataReader GetFormDataByName(Database db, String name)
         {
             StringBuilder sqlQuery = new StringBuilder();
