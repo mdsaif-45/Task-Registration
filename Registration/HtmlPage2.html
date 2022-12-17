@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shoping basket</title>
+</head>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        color: rgb(21, 70, 53);
+        background-color: aquamarine;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    #main {
+        /* margin: 150px auto; */
+        margin-top: 130px;
+        width: 400px;
+        height: 600px;
+        background-color: antiquewhite;
+        border: 1px solid rgb(21, 70, 53);
+        border-radius: 5px;
+    }
+
+    #title {
+        text-align: center;
+        padding: 15px;
+    }
+
+    #input {
+        width: 200px;
+        margin: 10px auto;
+        font-size: 20px;
+        font-family: monospace;
+    }
+
+    input {
+        height: 30px;
+        border: 1px solid rgb(21, 70, 53);
+        border-radius: 5px;
+        border-bottom: 2px solid rgb(21, 70, 53);
+        border-right: 2px solid rgb(21, 70, 53);
+    }
+
+    h2 {
+        font-family: monospace;
+        /* text-align: center; */
+        margin-top: 10px;
+    }
+
+    .button {
+        width: 88%;
+        height: 40px;
+        font-size: 18px;
+        font-family: monospace;
+        font-weight: bold;
+        margin: 20px auto;
+        margin-top: 30px;
+        background-color: aquamarine;
+    }
+
+    .button:hover {
+        background-color: rgb(46, 211, 156);
+    }
+
+    #result {
+        /* margin: 150px auto; */
+        width: 400px;
+        height: 600px;
+        margin-top: 130px;
+        margin-left: 20px;
+        padding-left: 20px;
+        text-align: left;
+        background-color: antiquewhite;
+        border: 1px solid rgb(21, 70, 53);
+        border-radius: 5px;
+        display: none;
+    }
+</style>
+<body>
+    <div id="main">
+        <h1 id="title">Shoping basket</h1>
+        <div id="input">
+            <p>Item Name: </p>
+            <input type="text" placeholder="Enter Product name" id="product" />
+            <button class="button" type="button" onclick="addToBasket()">Save to Basket</button>
+            <!-- <button class="button" type="button" onclick="delete()">Delete item</button>  -->
+        </div>
+    </div>
+    <div id="result">
+        <h1 style="margin: 30px;">List Items</h1>
+        <input type="search" placeholder="Search" id="txtSearch" oninput="searchRecords()" />
+        <h2 id="CurrentList"></h2>
+
+        <p></p>
+
+    </div>
+</body>
+</html>
+<script>
+
+
+
+    let basket = [];
+    function addToBasket() {
+        document.getElementById("result").style.display = "block";
+        let items = document.getElementById("product").value;
+        let p = document.getElementById("CurrentList");
+
+        basket.push(items);
+
+        p.innerHTML = "";
+        for (const value of basket) {
+            p.innerHTML += "<li>" + value + "</li>"
+        }
+        document.getElementById("product").value = "";
+    }
+
+    function searchRecords() {
+        document.getElementById("result").style.display = "block";
+        let searchValue = document.getElementById("txtSearch").value;
+
+        let subset = basket.filter(function (item) {
+            if (item.includes(searchValue))
+                return true;
+            else
+                return false;
+        })
+        console.log(subset)
+
+        let p = document.getElementById("CurrentList");
+        if(subset.length == 0){
+            p.innerHTML = "Not found..."
+            return;
+        }
+        p.innerHTML = "";
+        for (const value of subset) {
+            p.innerHTML += "<li>" + value + "</li>"
+        }
+    }
+
+    var element = document.getElementById("product");
+    element.addEventListener("keypress", function(event){
+        if(event.key === "Enter"){
+            event.preventDefault();
+            addToBasket();
+            element.value = "";
+        }
+    })
+
+    // function deleteItem(){
+    //     basket.pop();
+    //     addToBasket();
+    // }
+</script>

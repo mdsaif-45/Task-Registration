@@ -1,0 +1,188 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cutomer Details</title>
+</head>
+<style>
+
+    body {
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        color: rgb(21, 70, 53);
+        background-color: aquamarine;
+        font-family: Georgia, 'Times New Roman', Times, serif;
+    }
+
+    #main {
+        /* margin: 150px auto; */
+        margin-top: 130px;
+        width: 400px;
+        height: 600px;
+        background-color: antiquewhite;
+        border: 1px solid rgb(21, 70, 53);
+        /*border-radius: 5px;*/
+    }
+
+    #title {
+        text-align: center;
+        padding: 15px;
+    }
+
+    #input {
+        width: 200px;
+        margin: 10px auto;
+        font-size: 20px;
+        font-family: monospace;
+    }
+
+    input {
+        margin-top: 10px;
+        padding-left: 10px;
+        height: 30px;
+        border: 1px solid rgb(21, 70, 53);
+        /*border-radius: 5px;*/
+        border-bottom: 2px solid rgb(21, 70, 53);
+        border-right: 2px solid rgb(21, 70, 53);
+    }
+
+    input:hover {
+        border-color: antiquewhite;
+        /* border: 5px solid black; */
+    }
+
+    h2 {
+        font-family: monospace;
+        /* text-align: center; */
+        margin-top: 35px;
+    }
+
+    .button {
+        width: 91%;
+        height: 40px;
+        font-size: 18px;
+        font-family: monospace;
+        font-weight: bold;
+        margin: 20px auto;
+        margin-top: 30px;
+        background-color: aquamarine;
+        box-shadow: 5px 5px 0px 0px;
+    }
+
+    .button:hover {
+        background-color: rgb(46, 211, 156);
+    }
+
+    .animate:hover {
+        transition: all .2s ease-in;
+    }
+
+    #result {
+        /* margin: 150px auto; */
+        width: 400px;
+        height: 600px;
+        margin-top: 130px;
+        margin-left: 20px;
+        padding-left: 20px;
+        text-align: left;
+        background-color: antiquewhite;
+        border: 1px solid rgb(21, 70, 53);
+        /*border-radius: 5px;*/
+        display: none;
+    }
+</style>
+<body>
+    <div id="main">
+        <h1 id="title">Customer Data Entry</h1>
+        <div id="input">
+
+            <input type="text" placeholder="Enter the Name" id="txtName" />    <br>
+            <input type="text" placeholder="Enter the Address" id="txtAddress" />  <br>
+            <input type="number" placeholder="Enter the Contact" id="txtContact" />
+            <!-- <button type="button" onclick="onSaveAndDisplay()">Save changes</button>      -->
+            <button class="button animate" type="button" onclick="saveRecord()">Save changes</button>
+
+            <p>
+                <input width="200px" type="text" placeholder="Enter name to search" id="txtDelete" />
+                <button class="button" onclick="deleteFunc()">Delete</button>
+            </p>
+        </div>
+    </div>
+    <div id="result">
+        <h2>Customer information</h2>
+        <hr>
+        <button class="button" onclick="displayRecords()">Refresh</button>
+        <table style="border: none;" width="90%" id="tblRecords">
+        </table>
+    </div>
+</body>
+</html>
+<script src="customer.js"></script>
+<script>
+    let db = new CustomerDB();
+
+    let $get = (elementId) => document.getElementById(elementId).value;
+    let $set = (name, value ) => document.getElementById(name).value = value;
+    let $clear = (name) => $set(name, "");
+
+    function clearInputs(){
+        document.getElementById("result").style.display = "block";
+        $clear("txtName");
+        $clear("txtAddress");
+        $clear("txtContact");
+    }
+
+    function onSaveAndDisplay(){
+        document.getElementById("result").style.display = "block";
+
+        let name = $get("txtName");
+        let address = $get("txtAddress");
+        let contact = $get("txtContact");
+
+        let ex1 = new Customer(name, address, contact);
+
+        document.getElementById("tblRecords").innerHTML += ex1.toStringFormat();
+        clearInputs();
+    }
+
+    function saveRecord(){
+        //take inputs from the user
+        let name = $get("txtName");
+        let address = $get("txtAddress");
+        let contact = $get("txtContact");
+        //create a new Customer object with the input data.
+        let obj = new Customer(name, address, contact);
+        //add the Customer to the db object using register function.
+        db.register(obj);
+        clearInputs();
+
+        displayRecords();
+    }
+
+    function displayRecords(){
+        document.getElementById("result").style.display = "block";
+       let tbl = document.getElementById("tblRecords");
+       tbl.innerHTML = "<tr><th>Name</th><th>Address</th><th>Contact</th></tr>";
+       let records = db.getAll();
+
+       for (const Customer of records) {
+        tbl.innerHTML += Customer.toStringFormat();
+       }
+    }
+
+    function deleteFunc(){
+        let id = $get("txtDelete");
+        try {
+            db.delete(id);
+            alert("Customer with Id " + id + " is deleted successfully")
+        } catch (error) {
+            alert(error);
+        }
+        displayRecords();
+    }
+</script>

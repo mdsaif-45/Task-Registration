@@ -1,0 +1,14 @@
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\iPAS_UserService_DAL.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\iPAS_UserService_DAL.pdb
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Common.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.EnterpriseLibrary.Data.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.ServiceLocation.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.Unity.Configuration.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.Unity.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.Unity.Interception.Configuration.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\bin\x86\Debug\Microsoft.Practices.Unity.Interception.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\obj\x86\Debug\iPAS_UserService_DAL.csproj.CoreCompileInputs.cache
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\obj\x86\Debug\iPAS_UserService_DAL.csproj.CopyComplete
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\obj\x86\Debug\iPAS_UserService_DAL.dll
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\obj\x86\Debug\iPAS_UserService_DAL.pdb
+D:\TraineeTimes\Task Registration\iPAS_UserService_DAL\obj\x86\Debug\iPAS_UserService_DAL.csproj.AssemblyReference.cache

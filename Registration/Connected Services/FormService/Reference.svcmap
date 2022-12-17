@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="8584351f-6db2-492e-b7df-3c87e43fb717" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:56356/FormService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="FormService.xsd" MetadataType="Schema" ID="7e2dae77-3c27-4fb1-a623-5dce59c6ba53" SourceId="1" SourceUrl="http://localhost:56356/FormService.svc?xsd=xsd0" />
+    <MetadataFile FileName="FormService1.xsd" MetadataType="Schema" ID="3c100ab3-a4eb-456f-97b7-8c6085b8f99b" SourceId="1" SourceUrl="http://localhost:56356/FormService.svc?xsd=xsd2" />
+    <MetadataFile FileName="FormService.wsdl" MetadataType="Wsdl" ID="2d1aaa57-930e-48d3-9b24-845e95678a83" SourceId="1" SourceUrl="http://localhost:56356/FormService.svc?wsdl" />
+    <MetadataFile FileName="FormService.disco" MetadataType="Disco" ID="f37fcda0-99be-4b9b-9581-0fce352d036c" SourceId="1" SourceUrl="http://localhost:56356/FormService.svc?disco" />
+    <MetadataFile FileName="FormService2.xsd" MetadataType="Schema" ID="c1ee872d-dd76-4451-9dad-7c3e5ff8f99c" SourceId="1" SourceUrl="http://localhost:56356/FormService.svc?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

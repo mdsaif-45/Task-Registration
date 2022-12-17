@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FormService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:56356/FormService.svc?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:56356/FormService.svc?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:56356/FormService.svc?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/iPAS_UserService_DAL.Model" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFormService_Welcome_InputMessage">
+    <wsdl:part name="parameters" element="tns:Welcome" />
+  </wsdl:message>
+  <wsdl:message name="IFormService_Welcome_OutputMessage">
+    <wsdl:part name="parameters" element="tns:WelcomeResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormService_RegistrationFormData_InputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationFormData" />
+  </wsdl:message>
+  <wsdl:message name="IFormService_RegistrationFormData_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RegistrationFormDataResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFormService_CalculateDays_InputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateDays" />
+  </wsdl:message>
+  <wsdl:message name="IFormService_CalculateDays_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CalculateDaysResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFormService">
+    <wsdl:operation name="Welcome">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormService/Welcome" message="tns:IFormService_Welcome_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormService/WelcomeResponse" message="tns:IFormService_Welcome_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RegistrationFormData">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormService/RegistrationFormData" message="tns:IFormService_RegistrationFormData_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormService/RegistrationFormDataResponse" message="tns:IFormService_RegistrationFormData_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CalculateDays">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFormService/CalculateDays" message="tns:IFormService_CalculateDays_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFormService/CalculateDaysResponse" message="tns:IFormService_CalculateDays_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFormService" type="tns:IFormService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="Welcome">
+      <soap:operation soapAction="http://tempuri.org/IFormService/Welcome" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RegistrationFormData">
+      <soap:operation soapAction="http://tempuri.org/IFormService/RegistrationFormData" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CalculateDays">
+      <soap:operation soapAction="http://tempuri.org/IFormService/CalculateDays" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FormService">
+    <wsdl:port name="BasicHttpBinding_IFormService" binding="tns:BasicHttpBinding_IFormService">
+      <soap:address location="http://localhost:56356/FormService.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
